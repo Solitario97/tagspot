@@ -1,3 +1,5 @@
+import {initialCards} from "./cards"
+import "./pages/index.css"
 const page = document.querySelector(".page");
 
 const cardContainer = document.querySelector(".places__list");
