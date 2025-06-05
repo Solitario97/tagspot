@@ -42,6 +42,26 @@ module.exports = {
           "postcss-loader",
         ],
       },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+        options: {
+          sources: {
+            list: [
+              // Обрабатывает <img src="...">
+              "...",
+              {
+                tag: "div",
+                attribute: "style",
+                type: "src",
+                filter: (tag, attr, value) => {
+                  return value.includes("background-image");
+                },
+              },
+            ],
+          },
+        },
+      },
     ],
   },
   plugins: [
